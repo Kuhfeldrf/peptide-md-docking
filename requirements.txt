@@ -1,0 +1,40 @@
+# Core dependencies from ligand-protein test.ipynb
+biopython>=1.79
+numpy>=1.23.4,<2.0.0  # Pin to NumPy 1.x for compatibility with rdkit and other packages
+
+# Chemistry and molecular modeling
+rdkit-pypi>=2022.9.1
+pymatgen>=2022.11.7
+
+# Jupyter kernel support
+ipykernel>=6.0.0
+jupyter>=1.0.0
+
+# XTB quantum chemistry (from ligand-protein test.ipynb line 4)
+# Note: xtb-python is NOT available via pip
+# Installation options:
+#   1. Use conda: conda install -c conda-forge xtb-python
+#   2. Or install in conda environment and use that kernel instead
+#   3. Comment out 'import xtb' if not needed
+# xtb-python>=20.1  # Uncomment if using conda environment
+
+# AlphaFold / ColabFold for structure prediction
+requests>=2.30.0  # For API calls
+
+# Structure conversion and preparation
+openbabel-wheel>=3.1.0  # For PDB to PDBQT conversion (open-source alternative to MGLTools)
+# Alternative: conda install -c conda-forge openbabel
+
+# Rosetta Suite (for advanced peptide-protein docking)
+# Install via conda: conda install -c conda-forge rosetta
+# Or download from: https://www.rosettacommons.org/software/license-and-download
+# Note: Academic use is free, commercial requires license
+
+# Optional dependencies (may require manual installation)
+# MolKit - mentioned in notebook but may require manual wheel installation
+# AutoDockTools - external tool, not a Python package
+# See: https://ccsb.scripps.edu/mgltools/downloads/
+# ColabFold - for local AlphaFold predictions (install separately if needed)
+# pip install colabfold[alphafold]
+
+
