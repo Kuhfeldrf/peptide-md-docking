@@ -41,7 +41,16 @@ source .venv/bin/activate
 jupyter notebook
 ```
 
-Open `ligand-protein test.ipynb` and follow the workflow.
+Open one of the workflow notebooks:
+- `peptide_structure_predictor.ipynb` - Complete workflow for peptide prediction and docking
+- `predict_peptide_structure_and_dock_local.ipynb` - Local execution workflow
+- `ligand-protein test with hpc offloading.ipynb` - HPC cluster offloading workflow
+
+### Which Notebook Should I Use?
+
+- **For most users**: Start with `peptide_structure_predictor.ipynb` - it contains the complete workflow
+- **For local-only execution**: Use `predict_peptide_structure_and_dock_local.ipynb` if you want to run everything locally
+- **For HPC clusters**: Use `ligand-protein test with hpc offloading.ipynb` if you have access to an HPC cluster and want to offload Rosetta jobs
 
 ## Workflow
 
@@ -98,20 +107,44 @@ This will:
 
 **Note:** Rosetta is free for academic use. Commercial use requires a license.
 
+## Notebooks
+
+This repository contains three main notebooks for peptide structure prediction and docking:
+
+1. **`peptide_structure_predictor.ipynb`** - Complete workflow notebook containing:
+   - Peptide structure prediction using AlphaFold/ESMFold (via API)
+   - Rosetta structure relaxation
+   - Rosetta peptide-protein docking
+   - Batch processing capabilities
+
+2. **`predict_peptide_structure_and_dock_local.ipynb`** - Local execution workflow with:
+   - Peptide structure prediction (AlphaFold/ESMFold)
+   - Local Rosetta docking and relaxation
+   - All functions optimized for local machine execution
+
+3. **`ligand-protein test with hpc offloading.ipynb`** - HPC cluster workflow featuring:
+   - Peptide structure prediction
+   - HPC offloading functions for Rosetta jobs
+   - File transfer utilities for cluster submission
+   - Remote job execution and monitoring
+
 ## File Structure
 
 ```
 peptide-md-docking/
-├── ligand-protein test.ipynb    # Main workflow notebook
-├── install_dependencies.sh       # Install Python dependencies
-├── install_rosetta.sh           # Install Rosetta suite
-├── check_dependencies.sh        # Verify installation
-├── requirements.txt             # Python package list
-├── 3fxi.pdb                    # Example receptor structure
-├── intestinal unique peptides.txt  # Example peptide sequences
-├── alphafold_predictions/       # Predicted peptide structures
-├── rosetta/                     # Rosetta installation
-└── archive/                     # Archived/unused files
+├── peptide_structure_predictor.ipynb          # Complete workflow notebook
+├── predict_peptide_structure_and_dock_local.ipynb  # Local execution workflow
+├── ligand-protein test with hpc offloading.ipynb   # HPC cluster workflow
+├── install_dependencies.sh                    # Install Python dependencies
+├── install_rosetta.sh                        # Install Rosetta suite
+├── check_dependencies.sh                     # Verify installation
+├── requirements.txt                          # Python package list
+├── 3fxi.pdb                                 # Example receptor structure
+├── intestinal unique peptides.txt           # Example peptide sequences
+├── alphafold_predictions/                   # Predicted peptide structures
+├── rosetta/                                 # Rosetta installation
+├── rosetta_docking/                         # Rosetta docking outputs
+└── archive/                                 # Archived/unused files
 ```
 
 ## Usage Examples
